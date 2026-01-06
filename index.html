@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喵物次元官网入口 - 官方正版APP下载 | 元气满满的追番神器</title>
+    <meta name="keywords" content="喵物次元, 喵物次元网页版, 喵物次元下载, 动漫在线观看, 免费动漫, 追番神器, 日本动漫, 国漫新番">
+    <meta name="description" content="喵物次元官方网站提供最新最全的动漫资讯、网页版在线观看及正版客户端下载。高清无广告，海量新番每日更新，带你领略不一样的二次元世界。">
+    
+    <style>
+        :root {
+            /* 调整为喵物次元的活力橙色调 */
+            --primary-color: #ff9d00;
+            --secondary-color: #ffcc80;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-gray: #fdfaf5; /* 略带暖色的背景 */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+
+        body { background-color: #fff; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+
+        /* 导航 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            background: rgba(255, 255, 255, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; }
+
+        /* Hero 区域布局调整 */
+        .hero {
+            background: linear-gradient(135deg, #fffaf0 0%, #fff3e0 100%);
+            padding: 60px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 85vh;
+        }
+        .hero-content { flex: 1.2; padding-right: 40px; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero-content p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 40px; }
+
+        .download-btns { display: flex; gap: 20px; flex-wrap: wrap; }
+        .btn {
+            padding: 14px 35px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .btn-web { background: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
+        .btn-app { background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 157, 0, 0.3); }
+
+        /* 预览图版块保持不变 */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .square-cover {
+            width: 460px;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(255, 157, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .square-cover:hover {
+            transform: scale(1.03);
+        }
+
+        .surprise-text {
+            color: #ff4400; /* 深橘红色 */
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: breathe 2s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* 功能展示 */
+        .features { padding: 80px 10%; text-align: center; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
+        .feature-item { padding: 40px; border-radius: 20px; background: var(--bg-gray); transition: 0.3s; }
+        .feature-item:hover { background: #fff3e0; transform: translateY(-5px); }
+        .feature-item h3 { color: var(--primary-color); margin-bottom: 15px; }
+
+        /* 弹窗样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 700px;
+            max-height: 80vh;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; color: #999; }
+        .modal-body h2 { margin-bottom: 20px; color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .modal-body p { margin-bottom: 15px; white-space: pre-line; color: #555; }
+
+        /* 页脚 */
+        footer { padding: 60px 10%; background: #333; color: #ccc; text-align: center; }
+        .footer-links { margin-bottom: 25px; }
+        .footer-links a { color: #ccc; text-decoration: none; margin: 0 15px; cursor: pointer; transition: 0.3s; }
+        .footer-links a:hover { color: var(--primary-color); }
+
+        /* 移动端适配调整 */
+        @media (max-width: 968px) {
+            .hero { flex-direction: column; text-align: center; padding: 40px 5%; }
+            .hero-content { padding-right: 0; margin-bottom: 40px; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .square-cover {
+                width: 300px;
+                height: 300px;
+            }
+            .surprise-text {
+                font-size: 1.3rem;
+            }
+            .download-btns { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">🐱 喵物次元</a>
+        <div class="nav-links">
+            <a href="https://ip.harmonylink.net/share/k4y20r" class="btn btn-web" style="padding: 8px 20px; font-size: 14px;">⚡ 科学上网</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>在这里开启<br><span style="color: var(--primary-color);">次元穿越之旅</span></h1>
+            <p>喵物次元官方入口：聚合全网优质动漫资源，提供网页极速播放及APP离线缓存。为每一位漫友打造专属的宅文化社区。</p>
+            <div class="download-btns">
+                <a href="https://miaowuciyuan.2rdh.com" target="_blank" rel="nofollow" class="btn btn-web">
+                    <span>🐾</span> 发布页入口
+                </a>
+                <a href="https://pan.quark.cn/s/1a5291343800" target="_blank" rel="nofollow" class="btn btn-app">
+                    <span>📱</span> APP 客户端下载
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <a href="https://appxiazai.pages.dev/" target="_blank" rel="nofollow">
+                <img src="./click.jpg" alt="预览图" class="square-cover">
+            </a>
+            <div class="surprise-text">🔥网址大全🔞全都有</div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>为什么要选择喵物次元？</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>极速加载</h3>
+                <p>自建全球高带宽 CDN 节点，无论 4K 还是 1080P，都能享受丝滑的加载体验。</p>
+            </div>
+            <div class="feature-item">
+                <h3>弹幕互动</h3>
+                <p>与千万漫友实时互动，分享追番感想，寻找同好不再孤单。</p>
+            </div>
+            <div class="feature-item">
+                <h3>智能避广</h3>
+                <p>深度优化的广告过滤算法，拒绝各种弹窗骚扰，还你一个纯净的追番空间。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a onclick="showModal('about')">关于喵物</a>
+            <a onclick="showModal('disclaimer')">版权声明</a>
+            <a onclick="showModal('contact')">联系我们</a>
+        </div>
+        <p>© 2026 喵物次元 | 永久官方发布页入口</p>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        const pageData = {
+            about: {
+                title: "关于喵物次元",
+                content: "喵物次元（MiaoWu Dimension）是一个深耕二次元领域的资源聚合平台。我们以“爱与和平”为理念，旨在为用户提供最舒适、最快捷的动漫观看环境。\n\n我们不仅提供高画质的番剧资源，更致力于构建一个有温度的动漫社区，让每位爱好者都能在这里找到归属感。"
+            },
+            disclaimer: {
+                title: "版权及免责声明",
+                content: "1. 喵物次元仅通过爬虫技术展示互联网公开资源，不进行任何形式的本地存储或上传。\n2. 我们尊重并保护知识产权，如发现侵权内容，请提供合法权属证明，我们将快速响应处理。\n3. 本站内容仅供技术测试与学习参考，请在相关法律允许范围内使用。"
+            },
+            contact: {
+                title: "联系我们",
+                content: "欢迎各类商务洽谈或意见反馈：\n\n● 商务联络：contact@miaowu-ciyuan.com\n● 版权处理：legal@miaowu-ciyuan.com\n\n喵物看板娘会在 48 小时内为您答复！"
+            }
+        };
+
+        const overlay = document.getElementById('modalOverlay');
+        const modalBody = document.getElementById('modalBody');
+
+        function showModal(key) {
+            const data = pageData[key];
+            modalBody.innerHTML = `<h2>${data.title}</h2><p>${data.content}</p>`;
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        overlay.onclick = function(e) {
+            if (e.target === overlay) closeModal();
+        }
+    </script>
+</body>
+</html>
