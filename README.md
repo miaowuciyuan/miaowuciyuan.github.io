@@ -8,7 +8,7 @@
 
 **一键访问：**<a href="https://miaowuciyuan.2rdh.com/" style="color: red; text-decoration: none;">🔥 喵物次元官网入口</a>
 
-**一键访问：**<a href="https://ntdongman.github.io/" style="color: red; text-decoration: none;">🔄 NT动漫备用入口</a>
+**一键访问：**<a href="https://miaowuciyuan.sbs/" style="color: red; text-decoration: none;">🔄 喵物次元备用入口</a>
 
 **一键访问：**<a href="https://2025gj.pages.dev/" style="color: red; text-decoration: none;">✨ 抖音网友整理的神仙工具网站</a>
 
